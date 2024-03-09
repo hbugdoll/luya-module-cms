@@ -165,7 +165,8 @@ class NavItem extends ActiveRecord implements GenericSearchInterface
      */
     public function slugifyAlias()
     {
-        $this->alias = Inflector::slug($this->alias, '-', true, false);
+        $transliterate = Yii::$app->getModule('cmsadmin')->pageAliasTransliteration;
+        $this->alias = Inflector::slug($this->alias, '-', true, $transliterate);
     }
 
     private $_type;

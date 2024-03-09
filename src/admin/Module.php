@@ -40,6 +40,22 @@ final class Module extends \luya\admin\base\Module implements CoreModuleInterfac
     public const ROUTE_CONFIG = 'cmsadmin/config/index';
 
     /**
+     * @var boolean Whether page alias should be transliterated or not. You can overrride this property in your configuration:
+     *
+     * ```php
+     *  'modules' => [
+     *      'cmsadmin' => [
+     *          'class' => 'luya\cms\admin\Module',
+     *          'pageAliasTransliteration' => true,
+     *      ],
+     *  ],
+     * ```
+     *
+     * @since 5.1.1
+     */
+    public $pageAliasTransliteration = false;
+
+    /**
      * @inheritdoc
      */
     public $apis = [
@@ -94,7 +110,7 @@ final class Module extends \luya\admin\base\Module implements CoreModuleInterfac
      * ```php
      *  'modules' => [
      *      'cmsadmin' => [
-     *          'class' => 'cmsadmin\Module',
+     *          'class' => 'luya\cms\admin\Module',
      *          'hiddenBlocks' => [
      *              'cmsadmin\blocks\TextBlock',
      *          ],
